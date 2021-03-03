@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 export const Home: FC<{}> = () =>
   <>
-    Soon to be a blog
+    Hello there
   </>
 
 export default Home;
