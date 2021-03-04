@@ -24,6 +24,9 @@ export const Layout: FC<{}> = ({ children }) => {
           <List.Item as='a' href='https://twitter.com/pnotequalnp'>
             <Icon name='twitter' />
           </List.Item>
+          <List.Item as='a' href='mailto:kevin@pnotequalnp.com'>
+            <Icon name='mail' />
+          </List.Item>
         </List>
       </Container>
     </Segment>
