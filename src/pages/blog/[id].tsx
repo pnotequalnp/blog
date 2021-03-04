@@ -5,6 +5,7 @@ import { getPosts } from '../../lib/posts';
 import path from 'path';
 import { useEffect } from 'react';
 import { useRemark } from 'react-remark';
+import { Container, Header } from 'semantic-ui-react';
 
 export type Props = {
   post: Post
@@ -14,11 +15,13 @@ export const BlogPost: FC<Props> = ({ post }) => {
   const [renderedContent, setContentSource] = useRemark();
   useEffect(() => setContentSource(post.content), []);
 
-  return <>
-    <h2>{post.title}</h2>
-    <h3>{post.date}</h3>
-    {renderedContent}
-  </>;
+  return <Container textAlign='center'>
+    <Header as='h1'>
+      {post.title}
+      <Header.Subheader>{post.date}</Header.Subheader>
+    </Header>
+    <Container text={true} as='article' textAlign='left'>{renderedContent}</Container>
+  </Container>;
 };
 
 export default BlogPost;

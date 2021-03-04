@@ -14,7 +14,9 @@
     "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-remark": "^2.0.3"
+    "react-remark": "^2.0.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.3"
   },
   "devDependencies": {
     "@types/node": "^14.14.31",

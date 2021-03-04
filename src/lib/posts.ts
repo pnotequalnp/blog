@@ -6,6 +6,8 @@ export type Post = {
   id: string,
   title: string,
   date: string,
+  summary: string,
+  length: number,
   content: string
 };
 
@@ -17,6 +19,8 @@ export const parse = async (filepath: string): Promise<Post> => {
     id: file.name,
     title: post.data.title,
     date: post.data.date,
+    summary: post.data.summary,
+    length: readingTime(post.content),
     content: post.content
   };
 };
@@ -26,3 +30,6 @@ export const getPosts = async (directory: string): Promise<Post[]> => {
   const fullFiles = postFiles.map(fp => path.join(directory, fp));
   return Promise.all(fullFiles.map(parse));
 };
+
+export const readingTime = (article: string): number =>
+  Math.ceil(article.split(/\s/).length / 200);
