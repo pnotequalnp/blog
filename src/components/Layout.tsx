@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import Link from 'next/link'
-import { Container, Menu } from 'semantic-ui-react';
+import { Container, Divider, Icon, List, Menu, Segment } from 'semantic-ui-react';
 
 export const Layout: FC<{}> = ({ children }) => {
   return <>
@@ -11,8 +11,22 @@ export const Layout: FC<{}> = ({ children }) => {
       </Menu>
     </Container>
     <Container>{children}</Container>
-    <Container as='footer'>
-    </Container>
+    <Segment as='footer' vertical>
+      <Container textAlign='center'>
+        <Divider section />
+        <List horizontal divided size='huge'>
+          <List.Item as='a' href='https://github.com/pnotequalnp'>
+            <Icon name='github' />
+          </List.Item>
+          <List.Item as='a' href='https://www.linkedin.com/in/pnotequalnp/'>
+            <Icon name='linkedin' />
+          </List.Item>
+          <List.Item as='a' href='https://twitter.com/pnotequalnp'>
+            <Icon name='twitter' />
+          </List.Item>
+        </List>
+      </Container>
+    </Segment>
   </>
 };
 
