@@ -5,6 +5,7 @@ import { getPosts } from '../../lib/posts';
 import path from 'path';
 import PostPreview from '../../components/blog/PostPreview';
 import { Card } from 'semantic-ui-react';
+import Head from 'next/head';
 
 export type Props = {
   posts: Post[]
@@ -14,6 +15,9 @@ export const BlogIndex: FC<Props> = ({ posts }) => {
   const previews = posts.map(post => <PostPreview key={post.id} post={post} />);
 
   return <>
+    <Head>
+      <title>Kevin Mullins - Blog</title>
+    </Head>
     <Card.Group>{previews}</Card.Group>
   </>;
 };

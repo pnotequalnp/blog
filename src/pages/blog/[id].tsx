@@ -6,6 +6,7 @@ import path from 'path';
 import { useEffect } from 'react';
 import { useRemark } from 'react-remark';
 import { Container, Header } from 'semantic-ui-react';
+import Head from 'next/head';
 
 export type Props = {
   post: Post
@@ -15,13 +16,19 @@ export const BlogPost: FC<Props> = ({ post }) => {
   const [renderedContent, setContentSource] = useRemark();
   useEffect(() => setContentSource(post.content), []);
 
-  return <Container textAlign='center'>
-    <Header as='h1'>
-      {post.title}
-      <Header.Subheader>{post.date}</Header.Subheader>
-    </Header>
-    <Container text={true} as='article' textAlign='left'>{renderedContent}</Container>
-  </Container>;
+  return <>
+    <Head>
+      <title>{post.title}</title>
+    </Head>
+    <Container textAlign='center'>
+      <Header as='h1'>
+        {post.title}
+        <Header.Subheader>{post.date}</Header.Subheader>
+        <Header.Subheader>{post.summary}</Header.Subheader>
+      </Header>
+      <Container text as='article' textAlign='left'>{renderedContent}</Container>
+    </Container>
+  </>;
 };
 
 export default BlogPost;
