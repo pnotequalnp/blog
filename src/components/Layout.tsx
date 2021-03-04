@@ -8,6 +8,7 @@ export const Layout: FC<{}> = ({ children }) => {
       <Menu as='nav'>
         <Menu.Item name='home'><Link href='/'><a>Home</a></Link></Menu.Item>
         <Menu.Item name='blog'><Link href='/blog'><a>Blog</a></Link></Menu.Item>
+        <Menu.Item name='about' position='right'><Link href='/about'><a>About</a></Link></Menu.Item>
       </Menu>
     </Container>
     <Divider section hidden />
