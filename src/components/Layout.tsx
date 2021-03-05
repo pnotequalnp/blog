@@ -16,7 +16,7 @@ export const Layout: FC<{}> = ({ children }) => {
     <Segment as='footer' vertical>
       <Container textAlign='center'>
         <Divider section />
-        <List horizontal divided size='huge'>
+        <List horizontal divided link size='huge'>
           <List.Item as='a' href='https://github.com/pnotequalnp'>
             <Icon name='github' />
           </List.Item>
@@ -28,6 +28,15 @@ export const Layout: FC<{}> = ({ children }) => {
           </List.Item>
           <List.Item as='a' href='mailto:kevin@pnotequalnp.com'>
             <Icon name='mail' />
+          </List.Item>
+        </List>
+        <Divider fitted hidden />
+        <List horizontal divided link>
+          <List.Item as='a' href='https://github.com/pnotequalnp/blog'>
+            <Icon name='github' /> View on GitHub
+          </List.Item>
+          <List.Item as='a' href='https://vercel.com/'>
+            Powered by Vercel
           </List.Item>
         </List>
       </Container>
