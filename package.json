@@ -13,8 +13,8 @@
     "gray-matter": "^4.0.2",
     "next": "10.0.7",
     "nprogress": "^0.2.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "0.0.0-experimental-ee4326357",
+    "react-dom": "0.0.0-experimental-ee4326357",
     "react-remark": "^2.0.3",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3"
