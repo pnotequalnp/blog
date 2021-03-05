@@ -17,8 +17,8 @@ export const About: FC<Props> = ({ repos }) => {
       <title>Kevin Mullins - About</title>
     </Head>
     <Container as='section'>
-      <Header as='h1' content='Pinned GitHub Repos' />
-      <Card.Group content={cards} />
+      <Header as='h1' content='Pinned GitHub Repos' textAlign='center' />
+      <Card.Group content={cards} centered />
     </Container>
   </>;
 };

@@ -18,7 +18,7 @@ export const BlogIndex: FC<Props> = ({ posts }) => {
     <Head>
       <title>Kevin Mullins - Blog</title>
     </Head>
-    <Card.Group>{previews}</Card.Group>
+    <Card.Group content={previews} centered />
   </>;
 };
 
