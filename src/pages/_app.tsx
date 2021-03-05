@@ -7,6 +7,7 @@ import nprogress from 'nprogress';
 
 import 'semantic-ui-css/semantic.min.css';
 import 'nprogress/nprogress.css';
+import '../styles/global.scss';
 
 Router.events.on('routeChangeStart', () => nprogress.start());
 Router.events.on('routeChangeComplete', () => nprogress.done());

@@ -12,7 +12,7 @@ export const Layout: FC<{}> = ({ children }) => {
       </Menu>
     </Container>
     <Divider section hidden />
-    <Container>{children}</Container>
+    <Container as='main'>{children}</Container>
     <Segment as='footer' vertical>
       <Container textAlign='center'>
         <Divider section />
