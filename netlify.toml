@@ -1,6 +1,0 @@
-[build]
-  command = "npm run build && npm run export"
-[[headers]]
-  for = "*"
-  [headers.values]
-    Cache-Control = "public, max-age=14400, must-revalidate"
