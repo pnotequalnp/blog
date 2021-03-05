@@ -7,7 +7,7 @@ export type Props = {
 };
 
 export const GitHubRepo: FC<Props> = ({ repo }) =>
-  <Card as='a'
+  <Card
     href={repo.url}
     header={repo.name}
     meta={repo.language}
