@@ -29,6 +29,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const repos = await pinnedRepos('pnotequalnp');
   return {
     props: { repos },
-    revalidate: 1
+    revalidate: 60
   };
 };
