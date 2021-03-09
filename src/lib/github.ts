@@ -13,6 +13,9 @@ type RepoIn = {
   description?: string,
   id: string,
   name: string,
+  object: {
+    text?: string
+  }
   primaryLanguage?: {
     name: string
   },
@@ -20,16 +23,17 @@ type RepoIn = {
   url: string
 };
 
-export type Repo = {
+export type Repo<T> = {
   description?: string,
   id: string,
   language?: string,
   name: string,
+  readme: T,
   stars: number,
   url: string
 };
 
-export const pinnedRepos = async (username: string): Promise<Repo[]> =>
+export const pinnedRepos = async (username: string): Promise<Repo<string>[]> =>
   client.request(gql`{
     user(login: "${username}") {
       pinnedItems(first: 6, types: REPOSITORY) {
@@ -38,6 +42,11 @@ export const pinnedRepos = async (username: string): Promise<Repo[]> =>
             description
             id
             name
+            object(expression: "main:README.md") {
+              ... on Blob {
+                text
+              }
+            }
             primaryLanguage {
               name
             }
@@ -54,6 +63,7 @@ export const pinnedRepos = async (username: string): Promise<Repo[]> =>
     id: repo.id,
     language: repo.primaryLanguage?.name ?? null,
     name: repo.name,
+    readme: repo.object?.text ?? null,
     stars: repo.stargazerCount,
     url: repo.url
   })));
