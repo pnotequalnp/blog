@@ -8,11 +8,11 @@ import { Card } from 'semantic-ui-react';
 import Head from 'next/head';
 
 export type Props = {
-  posts: Post[]
+  posts: Post<any>[]
 };
 
 export const BlogIndex: FC<Props> = ({ posts }) => {
-  const previews = posts.map(post => <PostPreview key={post.id} post={post} />);
+  const previews = posts.map(post => <PostPreview key={post.metadata.id} {...post} />);
 
   return <>
     <Head>
