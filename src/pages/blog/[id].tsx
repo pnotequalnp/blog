@@ -14,7 +14,7 @@ const components: MdxRemote.Components = {
   SyntaxHighlighter
 };
 
-export type Props = Post<MdxRemote.Source>;
+export type Props = Post<string, MdxRemote.Source>;
 
 export const BlogPost: FC<Props> = ({ metadata, content }) =>
   <>
@@ -24,7 +24,7 @@ export const BlogPost: FC<Props> = ({ metadata, content }) =>
     <Container textAlign='center'>
       <Header as='h1'>
         {metadata.title}
-        <Header.Subheader>{metadata.date}</Header.Subheader>
+        <Header.Subheader>{new Date(metadata.date).toLocaleDateString()}</Header.Subheader>
         <Header.Subheader>{metadata.summary}</Header.Subheader>
       </Header>
       <Container text as='article' textAlign='left'>{hydrate(content, { components })}</Container>
@@ -49,7 +49,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const postSource = posts.find(post => post.metadata.id === params.id);
   if (postSource === undefined) return { notFound: true };
   const content = await renderToString(postSource.content, { components });
-  const post = { ...postSource, content };
+  const date = postSource.metadata.date.toJSON();
+  const metadata = { ...postSource.metadata, date };
+  const post = { ...postSource, metadata, content };
   return {
     props: post
   };

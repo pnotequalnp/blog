@@ -3,7 +3,7 @@ import type { Post } from '../../lib/posts';
 import Link from 'next/link'
 import { Card } from 'semantic-ui-react';
 
-export type Props = Post<any>;
+export type Props = Post<Date, any>;
 
 export const PostPreview: FC<Props> = ({ metadata }) =>
   <Link href={`/blog/${metadata.id}`}>
@@ -11,7 +11,7 @@ export const PostPreview: FC<Props> = ({ metadata }) =>
       <Card.Content>
         <Card.Header>{metadata.title}</Card.Header>
         <Card.Meta>
-          <span className='date'>{metadata.date}</span>
+          <span className='date'>{metadata.date.toLocaleDateString()}</span>
         </Card.Meta>
         <Card.Description>{metadata.summary}</Card.Description>
       </Card.Content>

@@ -1,6 +1,6 @@
 ---
 title: 'Arcu Vitae Elementum Curabitur Vitae'
-date: '2021-03-03'
+date: 2021-03-03
 summary: 'Egestas egestas fringilla phasellus faucibus scelerisque eleifend.'
 ---
 

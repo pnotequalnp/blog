@@ -2,18 +2,18 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 
-export type Post<T> = {
+export type Post<S, T> = {
   metadata: {
     id: string,
     title: string,
-    date: string,
+    date: S,
     summary: string,
     length: number
   }
   content: T
 };
 
-export const parse = async (filepath: string): Promise<Post<string>> => {
+export const parse = async (filepath: string): Promise<Post<Date, string>> => {
   const file = path.parse(filepath);
   const data = await fs.promises.readFile(filepath);
   const post = matter(data);
@@ -29,7 +29,7 @@ export const parse = async (filepath: string): Promise<Post<string>> => {
   };
 };
 
-export const getPosts = async (directory: string): Promise<Post<string>[]> => {
+export const getPosts = async (directory: string): Promise<Post<Date, string>[]> => {
   const postFiles = await fs.promises.readdir(directory);
   const fullFiles = postFiles.map(fp => path.join(directory, fp));
   return Promise.all(fullFiles.map(parse));

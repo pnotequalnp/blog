@@ -1,6 +1,6 @@
 ---
 title: 'Ac Turpis Egestas Integer Eget'
-date: '2021-03-02'
+date: 2021-03-02
 summary: 'Est placerat in egestas erat imperdiet sed euismod nisi porta.'
 ---
 

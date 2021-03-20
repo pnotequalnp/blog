@@ -1,6 +1,6 @@
 ---
 title: 'Quam Elementum Pulvinar Etiam Non'
-date: '2021-03-01'
+date: 2021-03-01
 summary: 'Quam id leo in vitae turpis massa sed elementum tempus.'
 ---
 

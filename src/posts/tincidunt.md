@@ -1,6 +1,6 @@
 ---
 title: 'Ac Tortor Vitae Purus Faucibus'
-date: '2021-03-05'
+date: 2021-03-05
 summary: 'Consequat id porta nibh venenatis cras sed.'
 ---
 

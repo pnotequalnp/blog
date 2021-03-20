@@ -8,11 +8,15 @@ import { Card } from 'semantic-ui-react';
 import Head from 'next/head';
 
 export type Props = {
-  posts: Post<any>[]
+  posts: Post<string, any>[]
 };
 
 export const BlogIndex: FC<Props> = ({ posts }) => {
-  const previews = posts.map(post => <PostPreview key={post.metadata.id} {...post} />);
+  const previews = posts.map(post => {
+    const date = new Date(post.metadata.date);
+    const parsedPost = { ...post, metadata: { ...post.metadata, date } };
+    return <PostPreview key={post.metadata.id} {...parsedPost} />;
+  });
 
   return <>
     <Head>
@@ -25,7 +29,15 @@ export const BlogIndex: FC<Props> = ({ posts }) => {
 export default BlogIndex;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = await getPosts(path.join(process.cwd(), '/src/posts'));
+  const rawPosts = await getPosts(path.join(process.cwd(), '/src/posts'));
+  const posts = rawPosts.map(post => {
+    const metadata = {
+      ...post.metadata,
+      date: post.metadata.date.toJSON(),
+    };
+
+    return { ...post, metadata };
+  });
   return {
     props: { posts }
   };
