@@ -32,7 +32,8 @@ export const parse = async (filepath: string): Promise<Post<Date, string>> => {
 export const getPosts = async (directory: string): Promise<Post<Date, string>[]> => {
   const postFiles = await fs.promises.readdir(directory);
   const fullFiles = postFiles.map(fp => path.join(directory, fp));
-  return Promise.all(fullFiles.map(parse));
+  const posts = await Promise.all(fullFiles.map(parse));
+  return posts.sort((x, y) => y.metadata.date.getTime() - x.metadata.date.getTime());
 };
 
 export const readingTime = (article: string): number =>
