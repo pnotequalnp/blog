@@ -30,9 +30,9 @@ export const About: FC<Props> = ({ repos }) => {
       <p>
         One of my biggest interests is software architecture and engineering. I'm also interested in
         the implementation and application of statically typed purely functional programming
-        langauges. Additionally I enjoy the application of math to solve problems in programming,
-        especially graph theory, category theory, and type theory. I also follow the world of
-        security a little bit.
+        langauges. Additionally I enjoy the application of math such as graph theory, category
+        theory, type theory, and abstract algebra to solve difficult problems in programming. I
+        also follow the world of security a little bit.
       </p>
       <Header as='h2' content='Technologies' />
       <p>
@@ -45,8 +45,8 @@ export const About: FC<Props> = ({ repos }) => {
       <Header as='h2' content='Other Interests' />
       <p>
         Outside the technical world, I am involved with music, like to cook, play chess, am learning
-        French, and enjoy solving Rubik's cube style puzzles. You can find software on these topics
-        that I've written on my GitHub.
+        French, and enjoy solving Rubik's cube style puzzles. You can find software on some of these
+        topics that I've written on my GitHub.
       </p>
     </Container>
     <Divider section />
