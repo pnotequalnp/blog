@@ -30,7 +30,14 @@ export const parse = async (filepath: string): Promise<Post<Date, string>> => {
 };
 
 export const getPosts = async (directory: string): Promise<Post<Date, string>[]> => {
-  const postFiles = await fs.promises.readdir(directory);
+  const postFiles = await (async () => {
+    try {
+      const files = await fs.promises.readdir(directory);
+      return files;
+    } catch {
+      return [];
+    }
+  })();
   const fullFiles = postFiles.map(fp => path.join(directory, fp));
   const posts = await Promise.all(fullFiles.map(parse));
   return posts.sort((x, y) => y.metadata.date.getTime() - x.metadata.date.getTime());
